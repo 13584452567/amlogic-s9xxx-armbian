@@ -17,6 +17,7 @@ on:
         type: choice
         options:
           - unifreq
+          - 13584452567
       kernel_version:
         description: "Select kernel version"
         required: false
@@ -55,7 +56,7 @@ on:
       kernel_sign:
         description: "Set the kernel custom signature"
         required: false
-        default: "-ophub"
+        default: "-zicai"
       kernel_config:
         description: "Set the path of kernel .config"
         required: false
