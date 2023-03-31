@@ -337,7 +337,7 @@ EOF
 software_308() {
     # pve general settings
     my_interfaces="/etc/network/interfaces"
-    pve_package_list="pve-manager proxmox-ve"
+    pve_package_list="pve-manager proxmox-ve ifupdown2"
 
     case "${software_manage}" in
     install)
@@ -409,6 +409,10 @@ EOF
 
         echo -e "${STEPS} Start installing packages..."
         software_install "${pve_package_list}"
+
+        # Remove ceph-dkms package error
+        sudo rm -rf /usr/src/ceph-dkms-0.0.2
+        sudo dpkg --configure -a
         software_update
 
         sync && sleep 3
